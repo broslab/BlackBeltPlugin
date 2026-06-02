@@ -1,5 +1,3 @@
-# This plugin is released under the terms of the LGPLv3 or higher.
-
 from UM.Application import Application
 
 from UM.Mesh.MeshBuilder import MeshBuilder
