@@ -1,0 +1,182 @@
+{
+    "belt_plugin_enable": {
+        "label": "Belt Plugin Enable",
+        "description": "Enable or disable the Belt Plugin post-processing. When enabled, gcode will be modified for belt printer output.",
+        "type": "bool",
+        "default_value": false,
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_gantry_angle": {
+        "label": "Gantry Angle",
+        "description": "The angle of the belt printer gantry in degrees. Use 35 for Leee Printer and 45 for Creality CR-30.",
+        "type": "float",
+        "unit": "°",
+        "default_value": 45,
+        "minimum_value": "1",
+        "maximum_value": "89",
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_support_minimum_island_area": {
+        "label": "Min. Support Island Area",
+        "description": "Minimum area of a surface that requires support. Smaller islands are ignored.",
+        "type": "float",
+        "unit": "mm²",
+        "default_value": 3.0,
+        "minimum_value": "0",
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_repetitions": {
+        "label": "Print Repetitions",
+        "description": "Number of times to repeat the print on the belt.",
+        "type": "int",
+        "default_value": 1,
+        "minimum_value": "1",
+        "maximum_value_warning": "10",
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_repetitions_distance": {
+        "label": "Repetition Distance",
+        "description": "Distance in mm to advance the belt between repetitions.",
+        "type": "float",
+        "unit": "mm",
+        "default_value": 300,
+        "minimum_value": "1",
+        "enabled": "belt_plugin_enable and belt_repetitions > 1",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_z_offset_gap": {
+        "label": "Z Offset Gap",
+        "description": "Gap between the nozzle and belt at the start of the print.",
+        "type": "float",
+        "unit": "mm",
+        "default_value": 0.25,
+        "minimum_value": "0",
+        "maximum_value_warning": "1",
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft": {
+        "label": "Belt Raft",
+        "description": "Add a belt-specific raft under the object.",
+        "type": "bool",
+        "default_value": false,
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft_margin": {
+        "label": "Raft Margin",
+        "description": "Horizontal margin of the raft from the object in mm.",
+        "type": "float",
+        "unit": "mm",
+        "default_value": 0.0,
+        "minimum_value": "0",
+        "enabled": "belt_plugin_enable and belt_raft",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft_thickness": {
+        "label": "Raft Thickness",
+        "description": "Thickness of the raft in mm.",
+        "type": "float",
+        "unit": "mm",
+        "default_value": 0.8,
+        "minimum_value": "0.1",
+        "enabled": "belt_plugin_enable and belt_raft",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft_gap": {
+        "label": "Raft Gap",
+        "description": "Gap between the raft and the object in mm.",
+        "type": "float",
+        "unit": "mm",
+        "default_value": 0.5,
+        "minimum_value": "0",
+        "enabled": "belt_plugin_enable and belt_raft",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft_speed": {
+        "label": "Raft Print Speed",
+        "description": "Print speed for the raft in mm/s.",
+        "type": "float",
+        "unit": "mm/s",
+        "default_value": 18.0,
+        "minimum_value": "1",
+        "enabled": "belt_plugin_enable and belt_raft",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_raft_flow": {
+        "label": "Raft Flow",
+        "description": "Flow multiplier for the raft. 1.0 = 100%.",
+        "type": "float",
+        "default_value": 1.0,
+        "minimum_value": "0.1",
+        "maximum_value_warning": "2.0",
+        "enabled": "belt_plugin_enable and belt_raft",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_wall_enabled": {
+        "label": "Belt Wall Adjustment",
+        "description": "Adjust speed and flow for walls that touch the belt surface.",
+        "type": "bool",
+        "default_value": false,
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_wall_speed": {
+        "label": "Belt Wall Speed",
+        "description": "Maximum speed in mm/min for walls touching the belt.",
+        "type": "float",
+        "unit": "mm/min",
+        "default_value": 600.0,
+        "minimum_value": "1",
+        "enabled": "belt_plugin_enable and belt_wall_enabled",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_wall_flow": {
+        "label": "Belt Wall Flow",
+        "description": "Flow multiplier for walls touching the belt. 1.0 = 100%.",
+        "type": "float",
+        "default_value": 1.0,
+        "minimum_value": "0.1",
+        "maximum_value_warning": "2.0",
+        "enabled": "belt_plugin_enable and belt_wall_enabled",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_secondary_fans_enabled": {
+        "label": "Secondary Fans",
+        "description": "Enable control of secondary cooling fans (P1).",
+        "type": "bool",
+        "default_value": false,
+        "enabled": "belt_plugin_enable",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    },
+    "belt_secondary_fans_speed": {
+        "label": "Secondary Fans Speed Multiplier",
+        "description": "Speed multiplier for secondary fans relative to the main fan (0.0 - 1.0).",
+        "type": "float",
+        "default_value": 1.0,
+        "minimum_value": "0",
+        "maximum_value": "1",
+        "enabled": "belt_plugin_enable and belt_secondary_fans_enabled",
+        "settable_per_mesh": false,
+        "settable_per_extruder": false
+    }
+}
