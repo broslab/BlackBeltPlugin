@@ -1,5 +1,5 @@
 #Copyright (c) 2017 Ultimaker B.V.
-# This plugin is released under the terms of the LGPLv3 or higher.
+#Cura is released under the terms of the LGPLv3 or higher.
 
 import gc
 import sys
